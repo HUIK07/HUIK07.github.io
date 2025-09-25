@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardinería VerdeVida</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Jardinería VerdeVida</h1>
+    <p>Diseño y cuidado de jardines para un hogar más natural</p>
+  </header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="services">
+      <div class="card fade-in">
+        <img src="https://picsum.photos/400/200?random=1" alt="Diseño de jardines">
+        <h3>Diseño de Jardines</h3>
+        <p>Creamos espacios verdes personalizados para tu hogar o negocio.</p>
+      </div>
+      <div class="card fade-in">
+        <img src="https://picsum.photos/400/200?random=2" alt="Mantenimiento">
+        <h3>Mantenimiento</h3>
+        <p>Podas, riego automático, fertilización y cuidado general de tus plantas.</p>
+      </div>
+      <div class="card fade-in">
+        <img src="https://picsum.photos/400/200?random=3" alt="Paisajismo">
+        <h3>Paisajismo</h3>
+        <p>Transformamos espacios exteriores en paisajes únicos y sostenibles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería de Proyectos</h2>
+    <div class="gallery">
+      <img src="https://picsum.photos/300/200?random=4" alt="Proyecto 1" class="zoom">
+      <img src="https://picsum.photos/300/200?random=5" alt="Proyecto 2" class="zoom">
+      <img src="https://picsum.photos/300/200?random=6" alt="Proyecto 3" class="zoom">
+      <img src="https://picsum.photos/300/200?random=7" alt="Proyecto 4" class="zoom">
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form onsubmit="return enviarFormulario(event)">
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="mensaje">Mensaje:</label><br>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br><br>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jardinería VerdeVida - Todos los derechos reservados</p>
+    <p>📍 Madrid, España | 📞 +34 600 123 456</p>
+  </footer>
+
+  <script>
+    function enviarFormulario(event) {
+      event.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      alert(`¡Gracias ${nombre}! Hemos recibido tu mensaje.`);
+      document.querySelector("form").reset();
+      return false;
+    }
+
+    // Animaciones al hacer scroll
+    const cards = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>
